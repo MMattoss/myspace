@@ -1,5 +1,14 @@
-import Image from "next/image";
+import { getServerSession } from "next-auth"
+import { redirect } from "next/dist/server/api-utils"
 
-export default function Home() {
-	return <h1 className=" text-green-500 text-2xl">Hello world</h1>;
+export default async function Home() {
+	const session = await getServerSession();
+
+	if(!session) {
+		return <p>Not signed in...</p>
+	}
+
+	return <main>
+
+	</main>
 }
